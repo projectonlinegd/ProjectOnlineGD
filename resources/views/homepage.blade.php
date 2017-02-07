@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
+<script src="/js/newhome.js" type="text/javascript"></script>
 
 <div class="container">
     <h2>Log In</h2>
-    <form method="POST" action="/validateLogin">
+    <form method="POST" action="/validateLogin"  ng-app="myapp" name="myform" novalidate>
         {{ csrf_field() }}
         <!--    <label class="sr-only" for="inlineFormInput">Phone Number:</label>
             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -25,9 +26,13 @@
             <button type="submit" class="btn btn-primary">Submit</button>-->
         <div class="form-group">
             <label for="mobileNumber">Mobile Number:</label>
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">+880</span>
-                <input type="text" minlength="10" maxlength="10" pattern="[0-9]{10}" class="form-control" name="mobileNumber" id="mobileNumber">
+            <div ng-controller="Ctrl">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">+880</span>
+                    <input is-number ng-model="wks.number" type="text" class="form-control" name="mobileNumber" id="mobileNumber">
+                </div>
+                <span ng-show="!wks.validity">Value is invalid</span>
+
             </div>
         </div>
         <div class="form-group">
@@ -41,5 +46,4 @@
 
     </form>
 </div>
-
 @endsection

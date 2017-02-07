@@ -1,10 +1,3 @@
-@if (Auth::check())
-    I have one record!
-
-@else
-    I don't have any records!
-@endif
-
 @extends('layouts.master')
 
 @section('content')

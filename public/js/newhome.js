@@ -2,7 +2,7 @@ var $scope;
 var app = angular.module('myapp', []);
 
 app.controller('Ctrl', function ($scope) {
-    $scope.wks = {number: 1, validity: true}
+    $scope.wks = {mobileNumber: 1, validity: true}
 });
 
 app.directive('isNumber', function () {

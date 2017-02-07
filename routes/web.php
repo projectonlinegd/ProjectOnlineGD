@@ -19,6 +19,6 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     Route::post('/validateLogin', ['as' => 'validateLogin', 'uses' => 'LoginController@validateLogin']);
     Route::get('/dashboard', ['middleware'=>'auth','as' => 'dashboard', 'uses' => 'Dashboard@index'])->middleware('auth');
-    Route::post('/logout', ['middleware'=>'auth','as' => 'dashboard', 'uses' => 'LoginController@logout']);
+    Route::post('/logout', ['middleware'=>'RevalidateBackHistory','as' => 'dashboard', 'uses' => 'LoginController@logout']);
     Route::get('/test', ['middleware'=>'auth','as' => 'test', 'uses' => 'LoginController@test']);
 });
